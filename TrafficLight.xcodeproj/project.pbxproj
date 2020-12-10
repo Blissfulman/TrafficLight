@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		CE813AE32582841E006DCCBB /* TrafficLightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE813AE22582841E006DCCBB /* TrafficLightApp.swift */; };
-		CE813AE52582841E006DCCBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE813AE42582841E006DCCBB /* ContentView.swift */; };
+		CE813AE52582841E006DCCBB /* TrafficLightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE813AE42582841E006DCCBB /* TrafficLightView.swift */; };
 		CE813AE725828421006DCCBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE813AE625828421006DCCBB /* Assets.xcassets */; };
 		CE813AEA25828421006DCCBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE813AE925828421006DCCBB /* Preview Assets.xcassets */; };
+		CE813AF325828469006DCCBB /* RoundLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE813AF225828469006DCCBB /* RoundLight.swift */; };
+		CE813AF6258296CC006DCCBB /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE813AF5258296CC006DCCBB /* SwitchButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE813ADF2582841E006DCCBB /* TrafficLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE813AE22582841E006DCCBB /* TrafficLightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightApp.swift; sourceTree = "<group>"; };
-		CE813AE42582841E006DCCBB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE813AE42582841E006DCCBB /* TrafficLightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightView.swift; sourceTree = "<group>"; };
 		CE813AE625828421006DCCBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE813AE925828421006DCCBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE813AEB25828421006DCCBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE813AF225828469006DCCBB /* RoundLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundLight.swift; sourceTree = "<group>"; };
+		CE813AF5258296CC006DCCBB /* SwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				CE813AE22582841E006DCCBB /* TrafficLightApp.swift */,
-				CE813AE42582841E006DCCBB /* ContentView.swift */,
+				CE813AE42582841E006DCCBB /* TrafficLightView.swift */,
+				CE813AF225828469006DCCBB /* RoundLight.swift */,
+				CE813AF5258296CC006DCCBB /* SwitchButton.swift */,
 				CE813AE625828421006DCCBB /* Assets.xcassets */,
 				CE813AEB25828421006DCCBB /* Info.plist */,
 				CE813AE825828421006DCCBB /* Preview Content */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE813AE52582841E006DCCBB /* ContentView.swift in Sources */,
+				CE813AE52582841E006DCCBB /* TrafficLightView.swift in Sources */,
 				CE813AE32582841E006DCCBB /* TrafficLightApp.swift in Sources */,
+				CE813AF325828469006DCCBB /* RoundLight.swift in Sources */,
+				CE813AF6258296CC006DCCBB /* SwitchButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
