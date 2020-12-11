@@ -8,18 +8,34 @@
 import SwiftUI
 
 struct TrafficLightView: View {
+    
+    enum TrafficLightState {
+        case off, red, yellow, green
+    }
+    
+    // MARK: - Properties
     @State private var redLight = RoundLight(color: .red)
     @State private var yellowLight = RoundLight(color: .yellow)
     @State private var greenLight = RoundLight(color: .green)
     @State private var textButton = "START"
     
-    @State private var trafficLightState: TrafficLightState = .off
-    
-    private let lightIsOn = 1.0
-    private let lightIsOff = 0.3
-    
-    enum TrafficLightState {
-        case off, red, yellow, green
+    @State private var trafficLightState: TrafficLightState = .off {
+        didSet {
+            switch oldValue {
+            case .off:
+                textButton = "NEXT"
+                redLight.on()
+            case .red:
+                redLight.off()
+                yellowLight.on()
+            case.yellow:
+                yellowLight.off()
+                greenLight.on()
+            case .green:
+                greenLight.off()
+                redLight.on()
+            }
+        }
     }
     
     var body: some View {
@@ -37,25 +53,22 @@ struct TrafficLightView: View {
         .ignoresSafeArea()
     }
     
-    func switchButtonPressed() {
+    // MARK: - Private methods
+    private func switchButtonPressed() {
         switch trafficLightState {
         case .off:
-            textButton = "NEXT"
-            redLight.opacity = lightIsOn
             trafficLightState = .red
         case .red:
-            redLight.opacity = lightIsOff
-            yellowLight.opacity = lightIsOn
             trafficLightState = .yellow
         case.yellow:
-            yellowLight.opacity = lightIsOff
-            greenLight.opacity = lightIsOn
             trafficLightState = .green
         case .green:
-            greenLight.opacity = lightIsOff
-            redLight.opacity = lightIsOn
             trafficLightState = .red
         }
+    }
+    
+    private func switchOn(_ light: inout RoundLight) {
+        light.opacity = 1
     }
 }
 
