@@ -11,7 +11,7 @@ struct RoundLight: View {
     
     // MARK: - Properties
     let color: UIColor
-    @State var opacity = 0.3
+    var opacity = 0.3
     
     var body: some View {
         Color(color)
@@ -20,15 +20,6 @@ struct RoundLight: View {
             .opacity(opacity)
             .overlay(Circle().stroke(Color.white, lineWidth: 4))
             .padding(8)
-    }
-    
-    // MARK: - Public methods
-    func on() {
-        opacity = 1
-    }
-    
-    func off() {
-        opacity = 0.3
     }
 }
 

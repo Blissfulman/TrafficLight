@@ -24,16 +24,16 @@ struct TrafficLightView: View {
             switch oldValue {
             case .off:
                 textButton = "NEXT"
-                redLight.on()
+                switchOn(&redLight)
             case .red:
-                redLight.off()
-                yellowLight.on()
+                switchOff(&redLight)
+                switchOn(&yellowLight)
             case.yellow:
-                yellowLight.off()
-                greenLight.on()
+                switchOff(&yellowLight)
+                switchOn(&greenLight)
             case .green:
-                greenLight.off()
-                redLight.on()
+                switchOff(&greenLight)
+                switchOn(&redLight)
             }
         }
     }
@@ -41,16 +41,17 @@ struct TrafficLightView: View {
     var body: some View {
         ZStack {
             Color(.black)
+                .ignoresSafeArea()
             VStack {
                 redLight
                 yellowLight
                 greenLight
                 Spacer()
-                SwitchButton(textButton: textButton, action: switchButtonPressed)
+                SwitchButton(textButton: textButton,
+                             action: switchButtonPressed)
             }
-            .padding(50)
+            .padding()
         }
-        .ignoresSafeArea()
     }
     
     // MARK: - Private methods
@@ -69,6 +70,10 @@ struct TrafficLightView: View {
     
     private func switchOn(_ light: inout RoundLight) {
         light.opacity = 1
+    }
+    
+    private func switchOff(_ light: inout RoundLight) {
+        light.opacity = 0.3
     }
 }
 
