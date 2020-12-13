@@ -11,7 +11,7 @@ struct RoundLight: View {
     
     // MARK: - Properties
     let color: UIColor
-    var opacity = 0.3
+    let opacity: Double
     
     var body: some View {
         Color(color)
@@ -19,12 +19,11 @@ struct RoundLight: View {
             .clipShape(Circle())
             .opacity(opacity)
             .overlay(Circle().stroke(Color.white, lineWidth: 4))
-            .padding(8)
     }
 }
 
 struct RoundLight_Previews: PreviewProvider {
     static var previews: some View {
-        RoundLight(color: .green)
+        RoundLight(color: .green, opacity: 1)
     }
 }

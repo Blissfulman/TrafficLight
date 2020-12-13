@@ -13,20 +13,19 @@ struct SwitchButton: View {
     
     var body: some View {
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20.0)
-                    .fill(Color.blue)
-                Text(textButton)
-                    .fontWeight(.bold)
-                    .font(.title)
-                    .foregroundColor(.white)
-            }
-            .frame(width: 200, height: 70)
-            .overlay(RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.white, lineWidth: 4))
+            Text(textButton)
+                .fontWeight(.bold)
+                .font(.title)
+                .foregroundColor(.white)
         }
+        .frame(width: 200, height: 70)
+        .background(Color(.blue))
+        .cornerRadius(20)
+        .overlay(RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.white, lineWidth: 4))
     }
 }
+
 
 struct SwitchButton_Previews: PreviewProvider {
     static var previews: some View {

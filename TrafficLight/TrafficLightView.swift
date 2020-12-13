@@ -14,38 +14,21 @@ struct TrafficLightView: View {
     }
     
     // MARK: - Properties
-    @State private var redLight = RoundLight(color: .red)
-    @State private var yellowLight = RoundLight(color: .yellow)
-    @State private var greenLight = RoundLight(color: .green)
+    @State private var isLightRed = false
+    @State private var isLightYellow = false
+    @State private var isLightGreen = false
     @State private var textButton = "START"
     
-    @State private var trafficLightState: TrafficLightState = .off {
-        didSet {
-            switch oldValue {
-            case .off:
-                textButton = "NEXT"
-                switchOn(&redLight)
-            case .red:
-                switchOff(&redLight)
-                switchOn(&yellowLight)
-            case.yellow:
-                switchOff(&yellowLight)
-                switchOn(&greenLight)
-            case .green:
-                switchOff(&greenLight)
-                switchOn(&redLight)
-            }
-        }
-    }
+    @State private var currentLight: TrafficLightState = .off
     
     var body: some View {
         ZStack {
             Color(.black)
                 .ignoresSafeArea()
-            VStack {
-                redLight
-                yellowLight
-                greenLight
+            VStack(spacing: 20) {
+                RoundLight(color: .red, opacity: currentLight == .red ? 1 : 0.3)
+                RoundLight(color: .yellow, opacity: currentLight == .yellow ? 1 : 0.3)
+                RoundLight(color: .green, opacity: currentLight == .green ? 1 : 0.3)
                 Spacer()
                 SwitchButton(textButton: textButton,
                              action: switchButtonPressed)
@@ -56,24 +39,17 @@ struct TrafficLightView: View {
     
     // MARK: - Private methods
     private func switchButtonPressed() {
-        switch trafficLightState {
+        switch currentLight {
         case .off:
-            trafficLightState = .red
+            textButton = "NEXT"
+            currentLight = .red
         case .red:
-            trafficLightState = .yellow
+            currentLight = .yellow
         case.yellow:
-            trafficLightState = .green
+            currentLight = .green
         case .green:
-            trafficLightState = .red
+            currentLight = .red
         }
-    }
-    
-    private func switchOn(_ light: inout RoundLight) {
-        light.opacity = 1
-    }
-    
-    private func switchOff(_ light: inout RoundLight) {
-        light.opacity = 0.3
     }
 }
 
