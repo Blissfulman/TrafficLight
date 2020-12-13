@@ -14,11 +14,7 @@ struct TrafficLightView: View {
     }
     
     // MARK: - Properties
-    @State private var isLightRed = false
-    @State private var isLightYellow = false
-    @State private var isLightGreen = false
     @State private var textButton = "START"
-    
     @State private var currentLight: TrafficLightState = .off
     
     var body: some View {
